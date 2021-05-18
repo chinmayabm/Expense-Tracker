@@ -28,13 +28,13 @@ const App = () => {
   const [expenses, setExpenses] = useState(DUMMY_EXPENSES);
   const [filteredYear, setFilteredYear] = useState("2021");
 
-  const filterChangeHandler = (selectedYear) => {
-    setFilteredYear(selectedYear);
-  };
-
   const addExpenseHandler = (expense) => {
     setExpenses((prevExpenses) => [expense, ...prevExpenses]);
     setFilteredYear(expense.date.getFullYear().toString());
+  };
+
+  const filterChangeHandler = (selectedYear) => {
+    setFilteredYear(selectedYear);
   };
 
   return (
