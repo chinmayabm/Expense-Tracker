@@ -1,3 +1,21 @@
 # Expense-Tracker
 
-This is an application to add and track expenses using React. Inspired from the course "React - The Complete Guide" by Maximilian Schwarzmüller.
+This is an application to add and track expenses using React and TypeScript.
+It now includes a small Express backend which stores expenses in memory.
+
+## Running the application
+
+### Backend
+
+```bash
+cd server
+npm install
+npm start
+```
+
+### Frontend
+
+```bash
+npm install
+npm start
+```
