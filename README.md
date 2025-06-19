@@ -6,4 +6,7 @@ This is an application to add and track expenses using React. Inspired from the 
 
 An Express server backed by MongoDB provides CRUD endpoints under `/api/expenses`.
 Copy `server/.env.example` to `server/.env` and adjust the `MONGO_URI` if needed.
-Use `npm start` to run both the client and the server during development.
+
+## Running the application
+
+Use `npm start` in the repo root to run both the client and the server during development.

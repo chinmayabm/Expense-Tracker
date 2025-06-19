@@ -34,9 +34,7 @@ const App = () => {
   };
 
   const updateExpenseHandler = (expense: Expense) => {
-    setExpenses((prev) =>
-      prev.map((e) => (e._id === expense._id ? expense : e))
-    );
+    setExpenses((prev) => prev.map((e) => (e._id === expense._id ? expense : e)));
   };
 
   const filterChangeHandler = (selectedYear: string) => {
