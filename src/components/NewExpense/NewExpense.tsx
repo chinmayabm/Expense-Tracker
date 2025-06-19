@@ -1,16 +1,16 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./NewExpense.css";
 import ExpenseForm from "./ExpenseForm";
+import { Expense } from "../../App";
 
-const NewExpense = ({ onAddExpense }) => {
+interface Props {
+  onAddExpense: (expense: Expense) => void;
+}
+const NewExpense: React.FC<Props> = ({ onAddExpense }) => {
   const [isEditing, setIsEditing] = useState(false);
 
-  const saveExpenseDataHandler = (enteredExpenseData) => {
-    const expenseData = {
-      ...enteredExpenseData,
-      id: Math.random().toString(),
-    };
-    onAddExpense(expenseData);
+  const saveExpenseDataHandler = (enteredExpenseData: Expense) => {
+    onAddExpense(enteredExpenseData);
     setIsEditing(false);
   };
 

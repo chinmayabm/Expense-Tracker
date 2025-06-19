@@ -1,6 +1,11 @@
+import React from "react";
 import "./ExpenseDate.css";
 
-const ExpenseDate = ({ date }) => {
+interface Props {
+  date: Date;
+}
+
+const ExpenseDate: React.FC<Props> = ({ date }) => {
   const month = date.toLocaleString("default", { month: "long" });
   const year = date.getFullYear();
   const day = date.getDate();
