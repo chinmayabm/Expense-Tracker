@@ -1,6 +1,12 @@
+import React from "react";
 import Chart from "../Chart/Chart";
+import { Expense } from "../../App";
 
-const ExpensesChart = ({ expenses }) => {
+interface Props {
+  expenses: Expense[];
+}
+
+const ExpensesChart: React.FC<Props> = ({ expenses }) => {
   const chartDataPoints = [
     { label: "Jan", value: 0 },
     { label: "Feb", value: 0 },

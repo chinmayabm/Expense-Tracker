@@ -1,6 +1,11 @@
+import React from "react";
 import "./Switch.css";
 
-const Switch = ({ switchClick }) => {
+interface Props {
+  switchClick: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
+
+const Switch: React.FC<Props> = ({ switchClick }) => {
   return (
     <div className="expenses-filter">
       <div className="expenses-filter__control">

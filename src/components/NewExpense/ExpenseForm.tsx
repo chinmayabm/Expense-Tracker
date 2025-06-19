@@ -1,26 +1,35 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./ExpenseForm.css";
+import { Expense } from "../../App";
 
-const ExpenseForm = ({ onSaveExpenseData, onCancel }) => {
-  const [enteredTitle, setEnteredTitle] = useState("");
-  const [enteredAmount, setEnteredAmount] = useState("");
-  const [enteredDate, setEneteredDate] = useState("");
+interface Props {
+  onSaveExpenseData: (exp: Expense) => void;
+  onCancel: () => void;
+  initialExpense?: { title: string; amount: number; date: Date };
+}
 
-  const titleChangeHandler = (event) => {
+const ExpenseForm: React.FC<Props> = ({ onSaveExpenseData, onCancel, initialExpense }) => {
+  const [enteredTitle, setEnteredTitle] = useState(initialExpense?.title || "");
+  const [enteredAmount, setEnteredAmount] = useState(initialExpense?.amount.toString() || "");
+  const [enteredDate, setEneteredDate] = useState(
+    initialExpense ? new Date(initialExpense.date).toISOString().slice(0, 10) : ""
+  );
+
+  const titleChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEnteredTitle(event.target.value);
   };
-  const amountChangeHandler = (event) => {
+  const amountChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEnteredAmount(event.target.value);
   };
-  const dateChangeHandler = (event) => {
+  const dateChangeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
     setEneteredDate(event.target.value);
   };
 
-  const submitHandler = (event) => {
+  const submitHandler = (event: React.FormEvent) => {
     event.preventDefault();
-    const expenseData = {
+    const expenseData: Expense = {
       title: enteredTitle,
-      amount: enteredAmount,
+      amount: +enteredAmount,
       date: new Date(enteredDate),
     };
 
